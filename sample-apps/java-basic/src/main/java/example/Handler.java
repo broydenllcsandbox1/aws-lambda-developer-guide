@@ -15,8 +15,9 @@ public class Handler implements RequestHandler<Map<String,String>, String>{
   @Override
   public String handleRequest(Map<String,String> event, Context context)
   {
+    String newLine = System.getProperty("line.separator");
     LambdaLogger logger = context.getLogger();
-    String response = "{ \"name\":\"John\", \"age\":30, \"car\":null }";
+    String response = " { \"headers\": { \"x-custom-header\": \"my custom header value\" }, \"body\": {\"Person\":{  \"id\": 88,  \"name\": \"John Doe\" }}\", \"statusCode\": 200 }";
     // log execution details
     logger.log("ENVIRONMENT VARIABLES: " + gson.toJson(System.getenv()));
     logger.log("CONTEXT: " + gson.toJson(context));
