@@ -23,13 +23,17 @@ resource "aws_iam_role" "iam_for_lambda" {
   "Statement": [
     {
         "Effect": "Allow",
-        "Principal": { "AWS": "arn:aws:iam::152454028344:user/terraform.config.service.account" },
+        "Principal": {
+        "Service": "lambda.amazonaws.com"
+        },
         "Action": "sts:AssumeRole"
     }
   ]
 }
 EOF
 }
+
+# arn:aws:iam::152454028344:user/
 
 resource "aws_lambda_function" "test_lambda" {
   # If the file is not in the current working directory you will need to include a 
