@@ -34,7 +34,8 @@ public class HandlerStream implements RequestStreamHandler {
       HashMap event = gson.fromJson(reader, HashMap.class);
       logger.log("STREAM TYPE BROYDEN: " + inputStream.getClass().toString());
       logger.log("EVENT TYPE BROYDEN: " + event.getClass().toString());
-      writer.write(gson.toJson(event));
+      //writer.write(gson.toJson(event));
+      writer.write("{ \"message\": \"hello from mike\" }");
       if (writer.checkError())
       {
         logger.log("WARNING: Writer encountered an error.");
